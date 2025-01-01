@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=2.1">
+    <script src="{{ url_for('static', filename='js/typewriter.js') }}?v=2.1"></script>
+    <script src="{{ url_for('static', filename='js/drag-and-drop.js') }}?v=2.1"></script>
+
+</head>
+<body>
+    <h1>Image Shrinker</h1>
+    <img id="eiffeltower" src="{{ url_for('static', filename='/images/eiffeltower.png') }}" alt="Seam Carving">
+    <h2> 
+        <a href="#" class="typewrite" data-period="2000" data-type='[ "Upload Your Image Below!" ]'>
+        <span class="wrap"></span>
+      </a>
+    </h2>
+    <div id="upload-container">
+        <p>Drag & Drop Your File Here</p>
+        <p>or click to select a file</p>
+        <input type="file" id="file-input" hidden>
+    </div>
+    <h5>Specify the number of columns and rows to remove.</h5>
+
+    <form id="upload-form" action="/drag-upload" method="post" enctype="multipart/form-data">
+        <label for="remove_columns">Columns to Remove:</label>
+        <input type="number" name="remove_columns" id="remove_columns" min="0" value="0">
+        <br>
+        <label for="remove_rows">Rows to Remove:</label>
+        <input type="number" name="remove_rows" id="remove_rows" min="0" value="0">
+        <br>
+        <button type="button" id="process-btn">Shrink Image</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/downloadstyle.css') }}?v=2.1">
+    <title>Download Processed Image</title>
+</head>
+<body>
+    <h1>Processed Image Ready</h1>
+    <p>Your image has been processed! Click the button below to download it :3</p>
+    <a href="/files/{{ filename }}"><button id="download-btn">Download Image</button></a>
+</body>
+</html>
